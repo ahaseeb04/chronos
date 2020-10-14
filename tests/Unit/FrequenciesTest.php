@@ -13,6 +13,14 @@ class FrequenciesTest extends TestCase
         $this->assertEquals($frequencies->expression, 'abc');
     }
 
+    public function test_expression_replacement_works_correctly()
+    {
+        $frequencies = $this->frequencies();
+        $frequencies->daily()->daily();
+
+        $this->assertEquals($frequencies->expression, '0 0 * * *');
+    }
+
     public function test_can_replace_into_expression_at_position()
     {
         $frequencies = $this->frequencies();
@@ -228,14 +236,6 @@ class FrequenciesTest extends TestCase
         $frequencies->monthlyOn(10);
 
         $this->assertEquals($frequencies->expression, '0 0 10 * *');
-    }
-
-    public function test_expression_replacement_works_correctly()
-    {
-        $frequencies = $this->frequencies();
-        $frequencies->daily()->daily();
-
-        $this->assertEquals($frequencies->expression, '0 0 * * *');
     }
 
     protected function frequencies()

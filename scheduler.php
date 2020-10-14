@@ -2,4 +2,8 @@
 
 require_once 'vendor/autoload.php';
 
-$event = new \App\Events\SomeEvent();
+$kernel = new \App\Scheduler\Kernel();
+
+$kernel->add(new \App\Events\SomeEvent())->everyMinute();
+
+$kernel->run();

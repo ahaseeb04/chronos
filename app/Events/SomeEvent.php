@@ -13,6 +13,6 @@ class SomeEvent extends Event
      */
     public function handle()
     {
-        //
+        var_dump($this->expression);
     }
 }

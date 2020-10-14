@@ -114,12 +114,12 @@ trait Frequencies
      * Run the event twice daily at the specified hours.
      *
      * @param integer $firstHour
-     * @param integer $lastHour
+     * @param integer $secondHour
      * @return \App\Scheduler\Frequencies
      */
-    public function twiceDaily($firstHour = 1, $lastHour = 12)
+    public function twiceDaily($firstHour = 1, $secondHour = 12)
     {
-        return $this->replaceIntoExpression(1, [0, "{$firstHour},{$lastHour}"]);
+        return $this->replaceIntoExpression(1, [0, "{$firstHour},{$secondHour}"]);
     }
 
     /**
@@ -245,7 +245,7 @@ trait Frequencies
     }
 
     /**
-     * Run the event monthly on specified day.
+     * Run the event monthly on the specified day.
      *
      * @param integer $day
      * @return \App\Scheduler\Frequencies
