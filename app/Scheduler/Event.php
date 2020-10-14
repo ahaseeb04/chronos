@@ -2,6 +2,9 @@
 
 namespace App\Scheduler;
 
+use Carbon\Carbon;
+use Cron\CronExpression;
+
 abstract class Event
 {
     /**
@@ -17,4 +20,15 @@ abstract class Event
      * @return void
      */
     abstract public function handle();
+
+    /**
+     * Determine if the task should run.
+     *
+     * @param \Carbon\Carbon $date
+     * @return boolean
+     */
+    public function isDueToRun(Carbon $date)
+    {
+        return CronExpression::factory($this->expression)->isDue($date);
+    }
 }

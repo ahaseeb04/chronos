@@ -1,7 +1,10 @@
 {
     "name": "ahaseeb04/chronos",
     "description": "A task scheduling app.",
-    "require": {},
+    "require": {
+        "dragonmantank/cron-expression": "^3.0",
+        "nesbot/carbon": "^2.41"
+    },
     "require-dev": {
         "phpunit/phpunit": "^9.4"
     },
