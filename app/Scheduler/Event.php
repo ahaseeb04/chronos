@@ -4,9 +4,12 @@ namespace App\Scheduler;
 
 use Carbon\Carbon;
 use Cron\CronExpression;
+use App\Scheduler\Frequencies;
 
 abstract class Event
 {
+    use Frequencies;
+
     /**
      * The default cron expression.
      *
@@ -22,7 +25,7 @@ abstract class Event
     abstract public function handle();
 
     /**
-     * Determine if the task should run.
+     * Determine if the event should run.
      *
      * @param \Carbon\Carbon $date
      * @return boolean
